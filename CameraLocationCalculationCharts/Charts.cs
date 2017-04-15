@@ -1,4 +1,5 @@
-﻿using CameraLocationCalculationCharts.MathematicalModel;
+﻿using OxyPlot;
+using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,13 +12,14 @@ using System.Windows.Forms;
 
 namespace CameraLocationCalculationCharts
 {
-    public partial class Form1 : Form
+    public partial class Charts : Form
     {
-        public Form1()
+        public Charts()
         {
             InitializeComponent();
-            new Charts().Show();
-            this.propertyGridInputData.SelectedObject = new InputData();
+            var myModel = new PlotModel { Title = "Example 1" };
+            myModel.Series.Add(new FunctionSeries(Math.Cos, 0, 10, 0.1, "cos(x)"));
+            plotView1.Model = myModel;
         }
     }
 }
