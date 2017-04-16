@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="OxyPlot, Version=1.0.0.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
       <HintPath>..\packages\OxyPlot.Core.1.0.0\lib\net45\OxyPlot.dll</HintPath>
       <Private>True</Private>
@@ -66,7 +70,15 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MathematicalModel\Acceleration.cs" />
+    <Compile Include="MathematicalModel\AuxiliaryVariables.cs" />
+    <Compile Include="MathematicalModel\Cables.cs" />
+    <Compile Include="MathematicalModel\CommonStatic.cs" />
+    <Compile Include="MathematicalModel\Engine1.cs" />
     <Compile Include="MathematicalModel\InputData.cs" />
+    <Compile Include="MathematicalModel\Points.cs" />
+    <Compile Include="MathematicalModel\СalculationBase.cs" />
+    <Compile Include="MathematicalModel\Сoordinates.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Charts.resx">

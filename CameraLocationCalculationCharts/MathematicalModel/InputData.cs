@@ -1,51 +1,53 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace CameraLocationCalculationCharts.MathematicalModel
 {
-    class InputData
+    [Serializable]
+    public class InputData
     {
         const string StrucureConfiguration = "\t\tКонфигурация конструкции";
         const string StartCoordinates = "\tКоординаты точек старта";
         const string FinishCoordinates = "\tКоординаты точек финиша";
         const string DynamicParameters = "Динамические параметры";
 
-        [Category(StrucureConfiguration)]
-        public decimal H { get; set; }
-        [Category(StrucureConfiguration)]
-        public decimal L1 { get; set; }
-        [Category(StrucureConfiguration)]
-        public decimal L2 { get; set; }
-        [Category(StrucureConfiguration)]
-        public decimal l1 { get; set; }
-        [Category(StrucureConfiguration)]
-        public decimal l2 { get; set; }
+        [Category( StrucureConfiguration )]
+        public double H { get; set; }
+        [Category( StrucureConfiguration )]
+        public double L1 { get; set; }
+        [Category( StrucureConfiguration )]
+        public double L2 { get; set; }
+        [Category( StrucureConfiguration )]
+        public double l1 { get; set; }
+        [Category( StrucureConfiguration )]
+        public double l2 { get; set; }
 
-        [Category(StartCoordinates)]
-        public decimal Xs { get; set; }
-        [Category(StartCoordinates)]
-        public decimal Ys { get; set; }
-        [Category(StartCoordinates)]
-        public decimal Zs { get; set; }
+        [Category( StartCoordinates )]
+        public double Xs { get; set; }
+        [Category( StartCoordinates )]
+        public double Ys { get; set; }
+        [Category( StartCoordinates )]
+        public double Zs { get; set; }
 
-        [Category(FinishCoordinates)]
-        public decimal Xf { get; set; }
-        [Category(FinishCoordinates)]
-        public decimal Yf { get; set; }
-        [Category(FinishCoordinates)]
-        public decimal Zf { get; set; }
+        [Category( FinishCoordinates )]
+        public double Xf { get; set; }
+        [Category( FinishCoordinates )]
+        public double Yf { get; set; }
+        [Category( FinishCoordinates )]
+        public double Zf { get; set; }
 
-        [Category(DynamicParameters)]
-        public decimal M { get; set; }
-        [Category(DynamicParameters)]
-        public decimal as_ { get; set; }
-        [Category(DynamicParameters)]
-        public decimal af { get; set; }
-        [Category(DynamicParameters)]
-        public decimal Vm { get; set; }
-        [Category(DynamicParameters)]
-        public decimal Fn { get; set; }
-        [Category(DynamicParameters)]
-        public decimal k { get; set; }
+        [Category( DynamicParameters )]
+        public double M { get; set; }
+        [Category( DynamicParameters )]
+        public double as_ { get; set; }
+        [Category( DynamicParameters )]
+        public double af { get; set; }
+        [Category( DynamicParameters )]
+        public double Vm { get; set; }
+        [Category( DynamicParameters )]
+        public double Fn { get; set; }
+        [Category( DynamicParameters )]
+        public double k { get; set; }
 
     }
 }
