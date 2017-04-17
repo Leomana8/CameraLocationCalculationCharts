@@ -9,7 +9,7 @@ namespace CameraLocationCalculationCharts
 {
     public partial class Charts : Form
     {
-        private const int PointCount = 10;
+        private const int PointCount = 100;
 
         public Charts()
         {
