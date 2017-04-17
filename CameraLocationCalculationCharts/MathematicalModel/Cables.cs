@@ -25,21 +25,21 @@ namespace CameraLocationCalculationCharts.MathematicalModel
         public double CC { get; set; }
         public double DD { get; set; }
 
-        public double CosA => GetCos( AA );
+        public double CosA { get; private set; }
 
-        public double CosB => GetCos( BB );
+        public double CosB { get; private set; }
 
-        public double CosC => GetCos( CC );
+        public double CosC { get; private set; }
 
-        public double CosD => GetCos( DD );
+        public double CosD { get; private set; }
 
-        public double SinA => GetSin( AA );
+        public double SinA { get; private set; }
 
-        public double SinB => GetSin( BB );
+        public double SinB { get; private set; }
 
-        public double SinC => GetSin( CC );
+        public double SinC { get; private set; }
 
-        public double SinD => GetSin( DD );
+        public double SinD { get; private set; }
 
         public void Set( Coordinates current )
         {
@@ -49,6 +49,16 @@ namespace CameraLocationCalculationCharts.MathematicalModel
             DD = Math.Sqrt( MyMath.SD( L2 - current.X, l2 / 2 ) + MyMath.SD( l1 / 2, current.Y ) + MyMath.SD( H, current.Z ) );
 
             currentZ = current.Z;
+
+            CosA = GetCos( AA );
+            CosB = GetCos( BB );
+            CosC = GetCos( CC );
+            CosD = GetCos( DD );
+
+            SinA = GetSin( AA );
+            SinB = GetSin( BB );
+            SinC = GetSin( CC );
+            SinD = GetSin( DD );
         }
 
         public double GetCos( double length )
@@ -59,6 +69,11 @@ namespace CameraLocationCalculationCharts.MathematicalModel
         public double GetSin( double length )
         {
             return Math.Sqrt( 1 - GetCos( length ).Squared() );
+        }
+
+        public Cables Copy()
+        {
+            return new Cables( L1, L2, l1, l2, H ) { AA = AA, BB = BB, CC = CC, DD = DD, SinA = SinA, SinB = SinB, SinC = SinC, SinD = SinD, CosA = CosA, CosB = CosB, CosC = CosC, CosD = CosD };
         }
     }
 }

@@ -78,7 +78,7 @@
     <Compile Include="InputData.cs" />
     <Compile Include="MathematicalModel\InputData.cs" />
     <Compile Include="MathematicalModel\Points.cs" />
-    <Compile Include="MathematicalModel\СalculationBase.cs" />
+    <Compile Include="MathematicalModel\CalculationBase.cs" />
     <Compile Include="MathematicalModel\Сoordinates.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

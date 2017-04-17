@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using CameraLocationCalculationCharts.MathematicalModel;
 using OxyPlot;
 using OxyPlot.Axes;
@@ -8,18 +9,30 @@ namespace CameraLocationCalculationCharts
 {
     public partial class Charts : Form
     {
-        public Charts( InputData data, string title )
+        private const int PointCount = 10;
+
+        public Charts()
         {
             InitializeComponent();
-            Name = title;
-            const int pointCount = 80;
-            var myModel = new PlotModel { Title = "Силы: " + title };
-            var engine1 = new Engine1( data.ToModelData(), pointCount );
-            var func = new FunctionSeries( engine1.GetForce, 0, engine1.tf, engine1.DeltaT, title );
-            myModel.Axes.Add( new LinearAxis { Position = AxisPosition.Bottom, Title = "Время, с" } );
-            myModel.Axes.Add( new LinearAxis { Position = AxisPosition.Left, Title = "Сила, Н" } );
-            myModel.Series.Add( func );
-            plotViewF.Model = myModel;
+        }
+
+        public void Draw< T >( InputData data ) where T : CalculationBase
+        {
+            var modelF = new PlotModel { Title = "Сила" };
+            var engine = ( T ) Activator.CreateInstance( typeof( T ), data.ToModelData(), PointCount );
+            var funcF = new FunctionSeries( engine.GetForce, 0, engine.tf, engine.DeltaT, Text );
+            modelF.Axes.Add( new LinearAxis { Position = AxisPosition.Bottom, Title = "Время, с" } );
+            modelF.Axes.Add( new LinearAxis { Position = AxisPosition.Left, Title = "Сила, Н" } );
+            modelF.Series.Add( funcF );
+            plotViewF.Model = modelF;
+
+            engine.Reset();
+            var modelN = new PlotModel { Title = "Мощность" };
+            var funcN = new FunctionSeries( engine.GetPower, 0, engine.tf, engine.DeltaT, Text );
+            modelN.Axes.Add( new LinearAxis { Position = AxisPosition.Bottom, Title = "Время, с" } );
+            modelN.Axes.Add( new LinearAxis { Position = AxisPosition.Left, Title = "Мощность, Вт" } );
+            modelN.Series.Add( funcN );
+            plotViewN.Model = modelN;
         }
     }
 }

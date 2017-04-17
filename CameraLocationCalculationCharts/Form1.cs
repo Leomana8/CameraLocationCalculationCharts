@@ -22,7 +22,9 @@ namespace CameraLocationCalculationCharts
         {
             Settings.Default.InputData = JsonConvert.SerializeObject( inputData );
             Settings.Default.Save();
-            new Charts( inputData, button1.Text ).Show();
+            var charts = new Charts { Text = button1.Text };
+            charts.Draw< Engine1 >( inputData );
+            charts.Show();
         }
     }
 }

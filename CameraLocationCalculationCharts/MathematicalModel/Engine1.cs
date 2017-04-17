@@ -2,7 +2,7 @@
 
 namespace CameraLocationCalculationCharts.MathematicalModel
 {
-    public class Engine1 : СalculationBase
+    public class Engine1 : CalculationBase
     {
         public Engine1( InputData inputData, int pointsCount ) : base( inputData, pointsCount )
         {
@@ -20,6 +20,12 @@ namespace CameraLocationCalculationCharts.MathematicalModel
             if ( Math.Abs( dif ) <= 0.0001 )
                 return inputdata.M * g / 4 * cables.CosC;
             return inputdata.M * ( a * b - c * d ) / dif;
+        }
+
+        protected override double GetPower()
+        {
+            var v = ( cables.CC - prevCables.CC ) / DeltaT;
+            return GetForce() * v;
         }
     }
 }
