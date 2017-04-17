@@ -11,18 +11,22 @@ namespace CameraLocationCalculationCharts.MathematicalModel
             this.as_ = as_;
             this.af = af;
 
-            x = finish.X - start.X;
-            y = finish.Y - start.Y;
-            z = finish.Z - start.Z;
+            var x = finish.X - start.X;
+            var y = finish.Y - start.Y;
+            var z = finish.Z - start.Z;
+            var dif = Math.Sqrt( x.Squared() + y.Squared() + z.Squared() );
+            xMltpl = x / dif;
+            yMltpl = y / dif;
+            zMltpl = z / dif;
         }
 
         private readonly double af;
         private readonly double as_;
         private readonly double t1;
         private readonly double t2;
-        private readonly double x;
-        private readonly double y;
-        private readonly double z;
+        private readonly double xMltpl;
+        private readonly double yMltpl;
+        private readonly double zMltpl;
 
         public double X { get; private set; }
         public double Y { get; private set; }
@@ -41,9 +45,9 @@ namespace CameraLocationCalculationCharts.MathematicalModel
                 return;
             }
 
-            X = a * x / Math.Sqrt( x.Squared() + z.Squared() );
-            Y = a * y / Math.Sqrt( x.Squared() + y.Squared() );
-            Z = a * z / Math.Sqrt( x.Squared() + z.Squared() );
+            X = a * xMltpl;
+            Y = a * yMltpl;
+            Z = a * zMltpl;
         }
     }
 }
