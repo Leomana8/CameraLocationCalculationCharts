@@ -75,6 +75,7 @@
     <Compile Include="MathematicalModel\Cables.cs" />
     <Compile Include="MathematicalModel\CommonStatic.cs" />
     <Compile Include="MathematicalModel\Engine1.cs" />
+    <Compile Include="InputData.cs" />
     <Compile Include="MathematicalModel\InputData.cs" />
     <Compile Include="MathematicalModel\Points.cs" />
     <Compile Include="MathematicalModel\СalculationBase.cs" />

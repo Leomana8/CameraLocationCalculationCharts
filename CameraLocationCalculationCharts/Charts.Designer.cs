@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.plotView1 = new OxyPlot.WindowsForms.PlotView();
-            this.plotView2 = new OxyPlot.WindowsForms.PlotView();
+            this.plotViewF = new OxyPlot.WindowsForms.PlotView();
+            this.plotViewN = new OxyPlot.WindowsForms.PlotView();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -39,8 +39,8 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.plotView1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.plotView2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.plotViewF, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.plotViewN, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -50,31 +50,31 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(621, 362);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // plotView1
+            // plotViewF
             // 
-            this.plotView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plotView1.Location = new System.Drawing.Point(3, 31);
-            this.plotView1.Name = "plotView1";
-            this.plotView1.PanCursor = System.Windows.Forms.Cursors.Hand;
-            this.plotView1.Size = new System.Drawing.Size(304, 328);
-            this.plotView1.TabIndex = 0;
-            this.plotView1.Text = "plotView1";
-            this.plotView1.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
-            this.plotView1.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE;
-            this.plotView1.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS;
+            this.plotViewF.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.plotViewF.Location = new System.Drawing.Point(3, 31);
+            this.plotViewF.Name = "plotViewF";
+            this.plotViewF.PanCursor = System.Windows.Forms.Cursors.Hand;
+            this.plotViewF.Size = new System.Drawing.Size(304, 328);
+            this.plotViewF.TabIndex = 0;
+            this.plotViewF.Text = "plotView1";
+            this.plotViewF.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
+            this.plotViewF.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE;
+            this.plotViewF.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS;
             // 
-            // plotView2
+            // plotViewN
             // 
-            this.plotView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plotView2.Location = new System.Drawing.Point(313, 31);
-            this.plotView2.Name = "plotView2";
-            this.plotView2.PanCursor = System.Windows.Forms.Cursors.Hand;
-            this.plotView2.Size = new System.Drawing.Size(305, 328);
-            this.plotView2.TabIndex = 1;
-            this.plotView2.Text = "plotView2";
-            this.plotView2.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
-            this.plotView2.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE;
-            this.plotView2.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS;
+            this.plotViewN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.plotViewN.Location = new System.Drawing.Point(313, 31);
+            this.plotViewN.Name = "plotViewN";
+            this.plotViewN.PanCursor = System.Windows.Forms.Cursors.Hand;
+            this.plotViewN.Size = new System.Drawing.Size(305, 328);
+            this.plotViewN.TabIndex = 1;
+            this.plotViewN.Text = "plotView2";
+            this.plotViewN.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
+            this.plotViewN.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE;
+            this.plotViewN.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS;
             // 
             // Charts
             // 
@@ -82,6 +82,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 362);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Charts";
             this.Text = "Charts";
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -92,7 +93,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private OxyPlot.WindowsForms.PlotView plotView1;
-        private OxyPlot.WindowsForms.PlotView plotView2;
+        private OxyPlot.WindowsForms.PlotView plotViewF;
+        private OxyPlot.WindowsForms.PlotView plotViewN;
     }
 }

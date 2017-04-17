@@ -33,7 +33,7 @@ namespace CameraLocationCalculationCharts.MathematicalModel
             if ( inputdata.af > 0 )
                 inputdata.af = -inputdata.af;
 
-            var S = Math.Sqrt( MyMath.SD( inputdata.Xf, inputdata.Xs ) + MyMath.SD( inputdata.Yf, inputdata.Ys ) + MyMath.SD( inputdata.Zf, inputdata.Zs ) );
+            S = Math.Sqrt( MyMath.SD( inputdata.Xf, inputdata.Xs ) + MyMath.SD( inputdata.Yf, inputdata.Ys ) + MyMath.SD( inputdata.Zf, inputdata.Zs ) );
             tf = S / inputdata.Vm + inputdata.Vm / ( 2 * inputdata.as_ ) + inputdata.Vm / ( 2 * inputdata.af );
             DeltaT = tf / pointsCount;
            
@@ -58,9 +58,7 @@ namespace CameraLocationCalculationCharts.MathematicalModel
             accel.Set( t );
             cables.Set( current );
             vars.Set( cables, points, accel );
-            var newForce = GetForce();
-            lastForce = newForce == 0 ? lastForce : newForce;
-            return lastForce;
+            return GetForce();
         }
 
         protected abstract double GetForce();

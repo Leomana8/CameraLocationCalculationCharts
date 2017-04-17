@@ -1,9 +1,8 @@
-﻿using CameraLocationCalculationCharts.MathematicalModel;
+﻿using System.Windows.Forms;
+using CameraLocationCalculationCharts.MathematicalModel;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
-using System;
-using System.Windows.Forms;
 
 namespace CameraLocationCalculationCharts
 {
@@ -12,16 +11,15 @@ namespace CameraLocationCalculationCharts
         public Charts( InputData data, string title )
         {
             InitializeComponent();
-            this.Name = title;
-            var pointCount = 80;
+            Name = title;
+            const int pointCount = 80;
             var myModel = new PlotModel { Title = "Силы: " + title };
-            var engine1 = new Engine1( data, pointCount );
-            var func = new FunctionSeries( engine1.GetForce, 0, engine1.tf, engine1.DeltaT, "Fдв1" );
-            myModel.Axes.Add( new LinearAxis { Position = AxisPosition.Bottom, Title = "T", MajorStep = engine1.tf / 10 } );
-            myModel.Axes.Add( new LinearAxis { Position = AxisPosition.Left, Title = "F" } );
-
+            var engine1 = new Engine1( data.ToModelData(), pointCount );
+            var func = new FunctionSeries( engine1.GetForce, 0, engine1.tf, engine1.DeltaT, title );
+            myModel.Axes.Add( new LinearAxis { Position = AxisPosition.Bottom, Title = "Время, с" } );
+            myModel.Axes.Add( new LinearAxis { Position = AxisPosition.Left, Title = "Сила, Н" } );
             myModel.Series.Add( func );
-            plotView1.Model = myModel;
+            plotViewF.Model = myModel;
         }
     }
 }

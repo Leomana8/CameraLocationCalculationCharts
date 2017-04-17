@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CameraLocationCalculationCharts.MathematicalModel
 {
@@ -17,6 +13,5 @@ namespace CameraLocationCalculationCharts.MathematicalModel
         {
             return Math.Pow( a, 2 );
         }
-
     }
 }

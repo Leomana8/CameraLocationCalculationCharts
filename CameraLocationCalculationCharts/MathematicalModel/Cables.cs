@@ -4,8 +4,6 @@ namespace CameraLocationCalculationCharts.MathematicalModel
 {
     public class Cables
     {
-        double L1; double L2; double l1; double l2; double H;
-        double currentZ;
         public Cables( double L1, double L2, double l1, double l2, double H )
         {
             this.L1 = L1;
@@ -15,20 +13,33 @@ namespace CameraLocationCalculationCharts.MathematicalModel
             this.H = H;
         }
 
+        private readonly double H;
+        private readonly double l1;
+        private readonly double L1;
+        private readonly double l2;
+        private readonly double L2;
+        private double currentZ;
+
         public double AA { get; set; }
         public double BB { get; set; }
         public double CC { get; set; }
         public double DD { get; set; }
 
-        public double CosA { get { return GetCos( AA ); } }
-        public double CosB { get { return GetCos( BB ); } }
-        public double CosC { get { return GetCos( CC ); } }
-        public double CosD { get { return GetCos( DD ); } }
+        public double CosA => GetCos( AA );
 
-        public double SinA { get { return GetSin( AA ); } }
-        public double SinB { get { return GetSin( BB ); } }
-        public double SinC { get { return GetSin( CC ); } }
-        public double SinD { get { return GetSin( DD ); } }
+        public double CosB => GetCos( BB );
+
+        public double CosC => GetCos( CC );
+
+        public double CosD => GetCos( DD );
+
+        public double SinA => GetSin( AA );
+
+        public double SinB => GetSin( BB );
+
+        public double SinC => GetSin( CC );
+
+        public double SinD => GetSin( DD );
 
         public void Set( Coordinates current )
         {
