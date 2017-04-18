@@ -8,7 +8,7 @@ namespace CameraLocationCalculationCharts.MathematicalModel
         {
         }
 
-        protected override double GetForce()
+        protected override double GetForceForCurrent( double t )
         {
             var a = g + accel.Z - vars.O * cables.CosB + vars.S * cables.CosA;
             var b = vars.P * vars.I - vars.M * vars.J + vars.K;
@@ -23,10 +23,10 @@ namespace CameraLocationCalculationCharts.MathematicalModel
             return inputdata.M * ( a * b - c * d ) / dif;
         }
 
-        protected override double GetPower()
+        protected override double GetPowerForCurrent( double t )
         {
             var v = ( cables.DD - prevCables.DD ) / DeltaT;
-            return GetForce() * v;
+            return GetForceForCurrent( t ) * v;
         }
     }
 }

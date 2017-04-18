@@ -61,10 +61,10 @@ namespace CameraLocationCalculationCharts.MathematicalModel
         public double GetForce( double t )
         {
             NextPosition( t );
-            return GetForce();
+            return GetForceForCurrent( t );
         }
 
-        protected abstract double GetForce();
+        protected abstract double GetForceForCurrent( double t );
 
         private void NextPosition( double t )
         {
@@ -88,11 +88,11 @@ namespace CameraLocationCalculationCharts.MathematicalModel
         public double GetPower( double t )
         {
             NextPosition( t );
-            var power = GetPower();
+            var power = GetPowerForCurrent( t );
             prevCables = cables.Copy();
             return Math.Abs( power );
         }
 
-        protected abstract double GetPower();
+        protected abstract double GetPowerForCurrent( double t );
     }
 }
