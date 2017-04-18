@@ -13,12 +13,12 @@ namespace CameraLocationCalculationCharts.MathematicalModel
                 inputdata.af = -inputdata.af;
 
             S = Math.Sqrt( MyMath.SD( inputdata.Xf, inputdata.Xs ) + MyMath.SD( inputdata.Yf, inputdata.Ys ) + MyMath.SD( inputdata.Zf, inputdata.Zs ) );
-            tf = S / inputdata.Vm + inputdata.Vm / ( 2 * inputdata.as_ ) + inputdata.Vm / ( 2 * inputdata.af );
-            DeltaT = tf / pointsCount;
 
             t1 = inputdata.Vm / inputdata.as_;
-            t2 = S / inputdata.Vm + 3 * inputdata.Vm / 2 * inputdata.af - inputdata.Vm / 2 * inputdata.as_;
+            t2 = S / inputdata.Vm - inputdata.Vm / ( 2 * inputdata.as_ ) + inputdata.Vm / ( 2 * inputdata.af );
             t3 = -inputdata.Vm / inputdata.af;
+            tf = t1 + t2 + t3;
+            DeltaT = tf / pointsCount;
 
             start = new Coordinates( inputdata.Xs, inputdata.Ys, inputdata.Zs );
             finish = new Coordinates( inputdata.Xf, inputdata.Yf, inputdata.Zf );
@@ -52,7 +52,7 @@ namespace CameraLocationCalculationCharts.MathematicalModel
         {
             current = null;
             cables = new Cables( inputdata.L1, inputdata.L2, inputdata.l1, inputdata.l2, inputdata.H );
-            accel = new Acceleration( start, finish, t1, t2, t3, inputdata.af );
+            accel = new Acceleration( start, finish, t1, t2, inputdata.as_, inputdata.af );
             points = new Points( inputdata.l1, inputdata.l2 );
             vars = new AuxiliaryVariables( inputdata.L1, inputdata.L2, inputdata.l1, inputdata.l2 );
             prevCables = cables.Copy();
@@ -71,11 +71,13 @@ namespace CameraLocationCalculationCharts.MathematicalModel
             if ( current == null )
             {
                 current = new Coordinates( start.X, start.Y, start.Z );
-                return;
             }
-            current.X = current.X + deltaCoord.X;
-            current.Y = current.Y + deltaCoord.Y;
-            current.Z = current.Z + deltaCoord.Z;
+            else
+            {
+                current.X = current.X + deltaCoord.X;
+                current.Y = current.Y + deltaCoord.Y;
+                current.Z = current.Z + deltaCoord.Z;
+            }
 
             points.Set( current );
             accel.Set( t );
@@ -88,7 +90,7 @@ namespace CameraLocationCalculationCharts.MathematicalModel
             NextPosition( t );
             var power = GetPower();
             prevCables = cables.Copy();
-            return power;
+            return Math.Abs( power );
         }
 
         protected abstract double GetPower();

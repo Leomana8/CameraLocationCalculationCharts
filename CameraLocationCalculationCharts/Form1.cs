@@ -11,20 +11,37 @@ namespace CameraLocationCalculationCharts
         public Form1()
         {
             InitializeComponent();
-            var savedInput = JsonConvert.DeserializeObject< InputData >( Settings.Default.InputData );
-            inputData = savedInput ?? new InputData();
+            try
+            {
+                var savedInput = JsonConvert.DeserializeObject< InputData >( Settings.Default.InputData );
+                inputData = savedInput ?? new InputData();
+            }
+            catch ( Exception )
+            {
+                inputData = new InputData();
+            }
             propertyGridInputData.SelectedObject = inputData;
         }
 
         private readonly InputData inputData;
 
-        private void button1_Click( object sender, EventArgs e )
+        private void CreateCharts< T >( string text ) where T : CalculationBase
         {
             Settings.Default.InputData = JsonConvert.SerializeObject( inputData );
             Settings.Default.Save();
-            var charts = new Charts { Text = button1.Text };
-            charts.Draw< Engine1 >( inputData );
+            var charts = new Charts { Text = text };
+            charts.Draw< T >( inputData );
             charts.Show();
+        }
+
+        private void button1_Click( object sender, EventArgs e )
+        {
+            CreateCharts< Engine1 >( button1.Text );
+        }
+
+        private void button2_Click( object sender, EventArgs e )
+        {
+            CreateCharts< Engine2 >( button1.Text );
         }
     }
 }
