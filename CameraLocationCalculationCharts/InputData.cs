@@ -12,10 +12,6 @@ namespace CameraLocationCalculationCharts
         private const string FinishCoordinates = "\tКоординаты точек финиша";
         private const string DynamicParameters = "Динамические параметры";
 
-        public InputData()
-        {
-            PointCount = 50;
-        }
 
         [Category( StrucureConfiguration )]
         public double H { get; set; }
@@ -67,9 +63,6 @@ namespace CameraLocationCalculationCharts
 
         [Category( DynamicParameters )]
         public double k { get; set; }
-
-        [Category( "Параметры графика" )]
-        public int PointCount { get; set; }
 
         public MathematicalModel.InputData ToModelData()
         {

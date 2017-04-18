@@ -55,7 +55,7 @@ namespace CameraLocationCalculationCharts.MathematicalModel
             accel = new Acceleration( start, finish, t1, t2, inputdata.as_, inputdata.af );
             points = new Points( inputdata.l1, inputdata.l2 );
             vars = new AuxiliaryVariables( inputdata.L1, inputdata.L2, inputdata.l1, inputdata.l2 );
-            prevCables = cables.Copy();
+            prevCables = null;
         }
 
         public double GetForce( double t )
@@ -88,9 +88,9 @@ namespace CameraLocationCalculationCharts.MathematicalModel
         public double GetPower( double t )
         {
             NextPosition( t );
-            var power = GetPowerForCurrent( t );
+            var power = prevCables == null? 0 : GetPowerForCurrent( t );
             prevCables = cables.Copy();
-            return Math.Abs( power );
+            return  power;
         }
 
         protected abstract double GetPowerForCurrent( double t );

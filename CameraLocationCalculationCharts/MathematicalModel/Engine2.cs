@@ -19,7 +19,7 @@ namespace CameraLocationCalculationCharts.MathematicalModel
 
             var dif = e * b - c * f;
             if ( Math.Abs( dif ) <= 0.0001 )
-                return inputdata.M * g / 4 * cables.CosC;
+                return inputdata.M * g / 4 * cables.CosD;
             return inputdata.M * ( a * b - c * d ) / dif;
         }
 

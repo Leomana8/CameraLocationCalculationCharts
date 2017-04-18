@@ -39,6 +39,5 @@ namespace CameraLocationCalculationCharts.MathematicalModel
 
         public double k { get; set; }
 
-        public int PointCount { get; set; }
     }
 }

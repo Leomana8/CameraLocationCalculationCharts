@@ -49,7 +49,7 @@ namespace CameraLocationCalculationCharts.MathematicalModel
             H = cables.SinD * DivSqrt( points.D.Y, points.D.Y.Squared() + MyMath.SD( L2, points.D.X ) );
 
             I = cables.SinA * DivSqrt( points.A.X * l1 - points.A.Y * l2, points.A.X.Squared() + points.A.Y.Squared() ) * 0.5;
-            J = cables.SinB * DivSqrt( points.B.X * l1 - points.B.Y * l2, points.B.X.Squared() + MyMath.SD( L1, points.B.Y ) ) * 0.5;
+            J = cables.SinB * DivSqrt( points.B.X * l1 + points.B.Y * l2, points.B.X.Squared() + MyMath.SD( L1, points.B.Y ) ) * 0.5;
             var k1 = ( L1 - points.C.Y ) * l2 - ( L2 - points.C.X ) * l1;
             K = cables.SinC * DivSqrt( k1, MyMath.SD( L2, points.C.X ) + MyMath.SD( L1, points.C.Y ) ) * 0.5;
             var l = ( L2 - points.D.X ) * l1 + points.D.Y * l2;
