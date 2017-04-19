@@ -38,6 +38,5 @@ namespace CameraLocationCalculationCharts.MathematicalModel
         public double Fn { get; set; }
 
         public double k { get; set; }
-
     }
 }

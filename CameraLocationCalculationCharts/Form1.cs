@@ -13,7 +13,7 @@ namespace CameraLocationCalculationCharts
             InitializeComponent();
             try
             {
-                var savedInput = JsonConvert.DeserializeObject<InputData>( Settings.Default.InputData );
+                var savedInput = JsonConvert.DeserializeObject< InputData >( Settings.Default.InputData );
                 inputData = savedInput ?? new InputData();
             }
             catch ( Exception )
@@ -25,33 +25,33 @@ namespace CameraLocationCalculationCharts
 
         private readonly InputData inputData;
 
-        private void CreateCharts<T>( string text ) where T : CalculationBase
+        private void CreateCharts< T >( string text ) where T : CalculationBase
         {
             Settings.Default.InputData = JsonConvert.SerializeObject( inputData );
             Settings.Default.Save();
             var charts = new Charts { Text = text };
-            charts.Draw<T>( inputData );
+            charts.Draw< T >( inputData );
             charts.Show();
         }
 
         private void button1_Click( object sender, EventArgs e )
         {
-            CreateCharts<Engine1>( button1.Text );
+            CreateCharts< Engine1 >( button1.Text );
         }
 
         private void button2_Click( object sender, EventArgs e )
         {
-            CreateCharts<Engine2>( button1.Text );
+            CreateCharts< Engine2 >( button1.Text );
         }
 
         private void button3_Click( object sender, EventArgs e )
         {
-            CreateCharts<Engine3>( button1.Text );
+            CreateCharts< Engine3 >( button1.Text );
         }
 
         private void button4_Click( object sender, EventArgs e )
         {
-            CreateCharts<Engine4>( button1.Text );
+            CreateCharts< Engine4 >( button1.Text );
         }
     }
 }

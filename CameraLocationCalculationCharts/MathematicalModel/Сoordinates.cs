@@ -5,6 +5,7 @@
         public Coordinates()
         {
         }
+
         public Coordinates( double x, double y, double z )
         {
             X = x;

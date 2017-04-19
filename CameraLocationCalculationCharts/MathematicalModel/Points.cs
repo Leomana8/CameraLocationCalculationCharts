@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CameraLocationCalculationCharts.MathematicalModel
+﻿namespace CameraLocationCalculationCharts.MathematicalModel
 {
     public class Points
     {
-        private double l1;
-        private double l2;
-
         public Points( double l1, double l2 )
         {
             this.l1 = l1;
@@ -20,6 +11,9 @@ namespace CameraLocationCalculationCharts.MathematicalModel
             C = new Coordinates();
             D = new Coordinates();
         }
+
+        private readonly double l1;
+        private readonly double l2;
         public Coordinates A { get; set; }
         public Coordinates B { get; set; }
         public Coordinates C { get; set; }

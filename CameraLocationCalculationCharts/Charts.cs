@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 using CameraLocationCalculationCharts.MathematicalModel;
 using OxyPlot;
@@ -33,6 +34,10 @@ namespace CameraLocationCalculationCharts
             modelN.Axes.Add( new LinearAxis { Position = AxisPosition.Left, Title = "Мощность, Вт" } );
             modelN.Series.Add( funcN );
             plotViewN.Model = modelN;
+
+            var result = new CalculateOutputResult( data.ToModelData(), PointCount ).GetResult();
+            TypeDescriptor.AddAttributes( result, new ReadOnlyAttribute( true ) );
+            propertyGrid1.SelectedObject = result;
         }
     }
 }

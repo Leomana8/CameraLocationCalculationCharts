@@ -88,9 +88,9 @@ namespace CameraLocationCalculationCharts.MathematicalModel
         public double GetPower( double t )
         {
             NextPosition( t );
-            var power = prevCables == null? 0 : GetPowerForCurrent( t );
+            var power = prevCables == null ? 0 : GetPowerForCurrent( t );
             prevCables = cables.Copy();
-            return  power;
+            return power;
         }
 
         protected abstract double GetPowerForCurrent( double t );
