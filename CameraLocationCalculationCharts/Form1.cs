@@ -41,17 +41,17 @@ namespace CameraLocationCalculationCharts
 
         private void button2_Click( object sender, EventArgs e )
         {
-            CreateCharts< Engine2 >( button1.Text );
+            CreateCharts< Engine2 >( button2.Text );
         }
 
         private void button3_Click( object sender, EventArgs e )
         {
-            CreateCharts< Engine3 >( button1.Text );
+            CreateCharts< Engine3 >( button3.Text );
         }
 
         private void button4_Click( object sender, EventArgs e )
         {
-            CreateCharts< Engine4 >( button1.Text );
+            CreateCharts< Engine4 >( button4.Text );
         }
     }
 }
