@@ -39,7 +39,7 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 244F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 303F));
             this.tableLayoutPanel1.Controls.Add(this.plotViewF, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.plotViewN, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.propertyGrid1, 1, 0);
@@ -50,7 +50,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.90859F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.09141F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(651, 629);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(702, 629);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // plotViewF
@@ -59,7 +59,7 @@
             this.plotViewF.Location = new System.Drawing.Point(3, 3);
             this.plotViewF.Name = "plotViewF";
             this.plotViewF.PanCursor = System.Windows.Forms.Cursors.Hand;
-            this.plotViewF.Size = new System.Drawing.Size(401, 307);
+            this.plotViewF.Size = new System.Drawing.Size(393, 307);
             this.plotViewF.TabIndex = 0;
             this.plotViewF.Text = "plotView1";
             this.plotViewF.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
@@ -72,7 +72,7 @@
             this.plotViewN.Location = new System.Drawing.Point(3, 316);
             this.plotViewN.Name = "plotViewN";
             this.plotViewN.PanCursor = System.Windows.Forms.Cursors.Hand;
-            this.plotViewN.Size = new System.Drawing.Size(401, 310);
+            this.plotViewN.Size = new System.Drawing.Size(393, 310);
             this.plotViewN.TabIndex = 1;
             this.plotViewN.Text = "plotView1";
             this.plotViewN.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
@@ -83,10 +83,10 @@
             // 
             this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.propertyGrid1.HelpVisible = false;
-            this.propertyGrid1.Location = new System.Drawing.Point(410, 3);
+            this.propertyGrid1.Location = new System.Drawing.Point(402, 3);
             this.propertyGrid1.Name = "propertyGrid1";
             this.propertyGrid1.PropertySort = System.Windows.Forms.PropertySort.NoSort;
-            this.propertyGrid1.Size = new System.Drawing.Size(238, 307);
+            this.propertyGrid1.Size = new System.Drawing.Size(297, 307);
             this.propertyGrid1.TabIndex = 2;
             this.propertyGrid1.ToolbarVisible = false;
             this.propertyGrid1.UseWaitCursor = true;
@@ -95,9 +95,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 629);
+            this.ClientSize = new System.Drawing.Size(702, 629);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Charts";
             this.Text = "Графики";
             this.tableLayoutPanel1.ResumeLayout(false);

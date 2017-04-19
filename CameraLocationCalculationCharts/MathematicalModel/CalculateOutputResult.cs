@@ -4,6 +4,7 @@ namespace CameraLocationCalculationCharts.MathematicalModel
 {
     internal class CalculateOutputResult : CalculationBase
     {
+        public CalculateOutputResult( InputData input, int pointCount ) : base( input, pointCount )
         {
             engine1 = new Engine1( input, pointCount );
             engine2 = new Engine2( input, pointCount );
@@ -48,11 +49,12 @@ namespace CameraLocationCalculationCharts.MathematicalModel
                 res.F3Min = Math.Max( res.F3Min, f3 );
                 res.F4Min = Math.Max( res.F4Min, f4 );
 
-                res.P1Max = Math.Max( res.P1Max, engine1.GetPower( t ) );
-                res.P2Max = Math.Max( res.P2Max, engine2.GetPower( t ) );
-                res.P3Max = Math.Max( res.P3Max, engine3.GetPower( t ) );
-                res.P4Max = Math.Max( res.P4Max, engine4.GetPower( t ) );
+                res.P1Max = Math.Max( res.P1Max, Math.Abs( engine1.GetPower( t ) ) );
+                res.P2Max = Math.Max( res.P2Max, Math.Abs( engine2.GetPower( t ) ) );
+                res.P3Max = Math.Max( res.P3Max, Math.Abs( engine3.GetPower( t ) ) );
+                res.P4Max = Math.Max( res.P4Max, Math.Abs( engine4.GetPower( t ) ) );
             }
+            res.PSum = res.P1Max + res.P2Max + res.P3Max + res.P4Max;
             return res;
         }
     }

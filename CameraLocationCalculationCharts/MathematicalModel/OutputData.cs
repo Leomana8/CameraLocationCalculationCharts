@@ -6,8 +6,6 @@
 
         public double S { get; set; }
 
-        public double PMax { get; set; }
-
         public double F1Max { get; set; }
         public double F2Max { get; set; }
         public double F3Max { get; set; }
