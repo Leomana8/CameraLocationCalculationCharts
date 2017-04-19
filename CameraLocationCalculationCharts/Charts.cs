@@ -28,7 +28,7 @@ namespace CameraLocationCalculationCharts
 
             engine.Reset();
             var modelN = new PlotModel { Title = "Мощность" };
-            var funcN = new FunctionSeries( engine.GetPower, 0, engine.tf, engine.DeltaT, Text );
+            var funcN = new FunctionSeries( engine.GetPower, 0, engine.tf, engine.DeltaT, Text ) { Color = OxyColor.FromRgb( 0, 0, 250 ) };
             modelN.Axes.Add( new LinearAxis { Position = AxisPosition.Bottom, Title = "Время, с" } );
             modelN.Axes.Add( new LinearAxis { Position = AxisPosition.Left, Title = "Мощность, Вт" } );
             modelN.Series.Add( funcN );
