@@ -29,7 +29,7 @@ namespace CameraLocationCalculationCharts.MathematicalModel
 
         protected override double GetPowerForCurrent( double t )
         {
-            var v = ( ( cables.AA - prevCables.AA ) / DeltaT + ( cables.CC - prevCables.CC ) / DeltaT ) / inputdata.k;
+            var v = -( ( ( cables.AA - prevCables.AA ) / DeltaT + ( cables.CC - prevCables.CC ) / DeltaT ) / inputdata.k );
             return GetForceForCurrent( t ) * v;
         }
     }
