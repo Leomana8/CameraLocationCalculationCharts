@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace CameraLocationCalculationCharts.MathematicalModel
 {
@@ -6,10 +7,10 @@ namespace CameraLocationCalculationCharts.MathematicalModel
     {
         public CalculateOutputResult( InputData input, int pointCount ) : base( input, pointCount )
         {
-            engine1 = new Engine1( input, pointCount );
-            engine2 = new Engine2( input, pointCount );
-            engine3 = new Engine3( input, pointCount );
-            engine4 = new Engine4( input, pointCount );
+            engine1 = new Engine1( input, pointCount, false );
+            engine2 = new Engine2( input, pointCount, false );
+            engine3 = new Engine3( input, pointCount, false );
+            engine4 = new Engine4( input, pointCount, false );
         }
 
         private readonly Engine1 engine1;
@@ -45,9 +46,9 @@ namespace CameraLocationCalculationCharts.MathematicalModel
                 res.F4Max = Math.Max( res.F4Max, f4 );
 
                 res.F1Min = Math.Min( res.F1Min, f1 );
-                res.F2Min = Math.Max( res.F2Min, f2 );
-                res.F3Min = Math.Max( res.F3Min, f3 );
-                res.F4Min = Math.Max( res.F4Min, f4 );
+                res.F2Min = Math.Min( res.F2Min, f2 );
+                res.F3Min = Math.Min( res.F3Min, f3 );
+                res.F4Min = Math.Min( res.F4Min, f4 );
 
                 res.P1Max = Math.Max( res.P1Max, Math.Abs( engine1.GetPower( t ) ) );
                 res.P2Max = Math.Max( res.P2Max, Math.Abs( engine2.GetPower( t ) ) );

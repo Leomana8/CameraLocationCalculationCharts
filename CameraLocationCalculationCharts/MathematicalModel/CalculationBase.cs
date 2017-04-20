@@ -6,9 +6,10 @@ namespace CameraLocationCalculationCharts.MathematicalModel
     {
         protected const double g = 9.8;
 
-        public CalculationBase( InputData inputdata, int pointsCount )
+        public CalculationBase( InputData inputdata, int pointsCount, bool doStepInPower = true )
         {
             this.inputdata = inputdata;
+            this.doStepInPower = doStepInPower;
             if ( inputdata.af > 0 )
                 inputdata.af = -inputdata.af;
 
@@ -26,6 +27,8 @@ namespace CameraLocationCalculationCharts.MathematicalModel
 
             Reset();
         }
+
+        private readonly bool doStepInPower;
 
         protected Acceleration accel;
         protected Cables cables;
@@ -87,7 +90,8 @@ namespace CameraLocationCalculationCharts.MathematicalModel
 
         public double GetPower( double t )
         {
-            NextPosition( t );
+            if ( doStepInPower )
+                NextPosition( t );
             var power = prevCables == null ? 0 : GetPowerForCurrent( t );
             prevCables = cables.Copy();
             return power;

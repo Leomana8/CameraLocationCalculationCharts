@@ -4,7 +4,7 @@ namespace CameraLocationCalculationCharts.MathematicalModel
 {
     public class Engine4 : CalculationBase
     {
-        public Engine4( InputData inputData, int pointsCount ) : base( inputData, pointsCount )
+        public Engine4( InputData inputData, int pointsCount, bool doStepInPower = true ) : base( inputData, pointsCount, doStepInPower )
         {
             engine1 = new Engine1( inputData, pointsCount );
             engine2 = new Engine2( inputData, pointsCount );

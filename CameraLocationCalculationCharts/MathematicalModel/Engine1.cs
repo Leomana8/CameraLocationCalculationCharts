@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace CameraLocationCalculationCharts.MathematicalModel
 {
     public class Engine1 : CalculationBase
     {
-        public Engine1( InputData inputData, int pointsCount ) : base( inputData, pointsCount )
+        public Engine1( InputData inputData, int pointsCount, bool doStepInPower = true ) : base( inputData, pointsCount, doStepInPower )
         {
         }
 

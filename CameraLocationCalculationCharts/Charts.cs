@@ -20,7 +20,7 @@ namespace CameraLocationCalculationCharts
         public void Draw< T >( InputData data ) where T : CalculationBase
         {
             var modelF = new PlotModel { Title = "Сила" };
-            var engine = ( T ) Activator.CreateInstance( typeof( T ), data.ToModelData(), PointCount );
+            var engine = ( T ) Activator.CreateInstance( typeof( T ), data.ToModelData(), PointCount, true );
             var funcF = new FunctionSeries( engine.GetForce, 0, engine.tf, engine.DeltaT, Text );
             modelF.Axes.Add( new LinearAxis { Position = AxisPosition.Bottom, Title = "Время, с" } );
             modelF.Axes.Add( new LinearAxis { Position = AxisPosition.Left, Title = "Сила, Н" } );
